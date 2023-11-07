@@ -29,7 +29,7 @@ layers:
     - {t: RET, h: Navigation}
     - SPACE
     - {t: BKSP, h: Numbers}
-    - {t: TAB, h: Symbols}
+    - {t: ESC, h: Symbols}
   Navigation:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -59,7 +59,7 @@ layers:
     - {t: ▽, type: trans}
     - {type: held}
     - {t: ▽, type: trans}
-    - ESC
+    - DEL
     - DEL
   Numbers:
     - '7'
@@ -130,10 +130,36 @@ combos:
   - p: [6, 7]
     k: P
     l: [default]
+  - p: [1, 2]
+    k: Y
+    l: [default]
+  - p: [5, 6]
+    k: F
+    l: [default]
   - p: [18, 25]
     k: Caps Word
     l: [default]
     align: bottom
-    offset: 1
+  - p: [0, 9]
+    k: '['
+    l: [default]
+  - p: [1, 10]
+    k: (
+    l: [default]
+  - p: [2, 11]
+    k: '{'
+    l: [default]
+  - p: [5, 14]
+    k: '}'
+    l: [default]
+  - p: [6, 15]
+    k: )
+    l: [default]
+  - p: [7, 16]
+    k: ']'
+    l: [default]
+  - p: [27, 28]
+    k: TAB
+    l: [default]
 layout:
   qmk_info_json: keymap-drawer/tern_layout.json

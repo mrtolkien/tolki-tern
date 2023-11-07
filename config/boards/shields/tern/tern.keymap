@@ -29,28 +29,95 @@
 
     combos {
         compatible = "zmk,combos";
-        combo_quote {
+
+        // Extra alpha keys combos
+        combo_top_left_left {
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&kp SINGLE_QUOTE>;
-            layers = <0>
+            layers = <0>;
         };
 
-        combo_l {
+        combo_top_right_right {
             timeout-ms = <50>;
             key-positions = <6 7>;
             bindings = <&kp P>;
-            layers = <0>
+            layers = <0>;
         };
 
-        // This need to be the 3rd entry for the yq command in README to work
+        combo_top_left_right {
+            timeout-ms = <50>;
+            key-positions = <1 2>;
+            bindings = <&kp Y>;
+            layers = <0>;
+        };
+
+        combo_top_right_left {
+            timeout-ms = <50>;
+            key-positions = <5 6>;
+            bindings = <&kp F>;
+            layers = <0>;
+        };
+
+        // This need to be the 5th entry for the yq command in README to work
         combo_caps_word {
             timeout-ms = <50>;
             key-positions = <18 25>;
             bindings = <&caps_word>;
-            layers = <0>
+            layers = <0>;
         };
 
+        // Braces combos
+        combo_col_0 {
+            timeout-ms = <50>;
+            key-positions = <0 9>;
+            bindings = <&kp LEFT_BRACKET>;
+            layers = <0>;
+        };
+
+        combo_col_2 {
+            timeout-ms = <50>;
+            key-positions = <1 10>;
+            bindings = <&kp LEFT_PARENTHESIS>;
+            layers = <0>;
+        };
+
+        combo_col_3 {
+            timeout-ms = <50>;
+            key-positions = <2 11>;
+            bindings = <&kp LEFT_BRACE>;
+            layers = <0>;
+        };
+
+        combo_col_4 {
+            timeout-ms = <50>;
+            key-positions = <5 14>;
+            bindings = <&kp RIGHT_BRACE>;
+            layers = <0>;
+        };
+
+        combo_col_5 {
+            timeout-ms = <50>;
+            key-positions = <6 15>;
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            layers = <0>;
+        };
+
+
+        combo_col_6 {
+            timeout-ms = <50>;
+            key-positions = <7 16>;
+            bindings = <&kp RIGHT_BRACKET>;
+            layers = <0>;
+        };
+
+        // Extra exotic combos
+        combo_thumbs {
+            timeout-ms = <50>;
+            key-positions = <27 28>;
+            bindings = <&kp TAB>;
+            layers = <0>;
+        };
     };
 
     keymap {
@@ -62,7 +129,7 @@
                 &hm LGUI A &hm LALT O &hm LCTRL E &hm LSHFT U     &kp X        &kp B            &hm RSHFT H    &hm RCTRL T &hm LALT N &hm RGUI S
                 &kp SEMI   &kp Q      &kp J       &kp K                                         &kp M          &kp W       &kp V      &kp Z
 
-                                            &lt NAV_L RET   &kp SPACE                     &lt NUM_L BKSP    &lt SYM_L TAB
+                                            &lt NAV_L RET   &kp SPACE                     &lt NUM_L BKSP    &lt SYM_L ESC
             >;
         };
 
@@ -72,7 +139,7 @@
                            &trans     &trans      &trans          &trans       &trans           &kp HOME       &kp UARW &kp PG_UP
                 &trans     &trans     &trans      &trans          &trans       &trans           &kp LARW       &kp DARW &kp RARW   &trans
                 &trans     &trans     &trans      &trans                                        &kp END        &trans   &kp PG_DN  &trans
-                                                  &trans          &trans       &kp ESC          &kp DEL
+                                                  &trans          &trans       &kp DEL          &kp DEL
             >;
         };
 
