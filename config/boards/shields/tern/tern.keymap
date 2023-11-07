@@ -43,7 +43,7 @@
             layers = <0>
         };
 
-        // THIS NEEDS TO BE THE LAST ONE for easy representation
+        // This need to be the 3rd entry for the yq command in README to work
         combo_caps_word {
             timeout-ms = <50>;
             key-positions = <18 25>;
