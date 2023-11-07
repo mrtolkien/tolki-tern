@@ -1,0 +1,135 @@
+layers:
+  default:
+  - W
+  - E
+  - R
+  - T
+  - H
+  - U
+  - I
+  - O
+  - {t: A, h: LGUI}
+  - {t: S, h: LALT}
+  - {t: D, h: LCTRL}
+  - {t: F, h: LSHFT}
+  - G
+  - N
+  - {t: J, h: RSHFT}
+  - {t: K, h: RCTRL}
+  - {t: L, h: LALT}
+  - {t: QUOT, h: RGUI}
+  - Z
+  - X
+  - C
+  - V
+  - M
+  - ','
+  - .
+  - /
+  - {t: TAB, h: Nav}
+  - RET
+  - {t: SPACE, h: Num}
+  - {t: BKSP, h: Sym}
+  Nav:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - HOME
+  - UARW
+  - PG UP
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - LARW
+  - DARW
+  - RARW
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - END
+  - {t: ▽, type: trans}
+  - PG DN
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - ESC
+  - DEL
+  Num:
+  - '7'
+  - '8'
+  - '9'
+  - ']'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ;
+  - '4'
+  - '5'
+  - '6'
+  - '='
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '['
+  - '1'
+  - '2'
+  - '3'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '0'
+  - '-'
+  - {type: held}
+  - {t: ▽, type: trans}
+  Sym:
+  - LS(7)
+  - LS(8)
+  - LS(9)
+  - '}'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ':'
+  - LS(4)
+  - LS(5)
+  - LS(6)
+  - +
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '{'
+  - LS(1)
+  - LS(2)
+  - LS(3)
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - LS(0)
+  - _
+  - {t: ▽, type: trans}
+  - {type: held}
+combos:
+- p: [0, 1]
+  k: Q
+- p: [6, 7]
+  k: P
+- p: [21, 22]
+  k: B
+- p: [23, 24]
+  k: Y
+layout: {qmk_info_json: keymap-drawer/tern_layout.json}
