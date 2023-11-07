@@ -128,7 +128,7 @@ combos:
     k: ''''
     l: [default]
   - p: [6, 7]
-    k: P
+    k: L
     l: [default]
   - p: [1, 2]
     k: Y
