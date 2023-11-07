@@ -41,7 +41,7 @@
         combo_top_right_right {
             timeout-ms = <50>;
             key-positions = <6 7>;
-            bindings = <&kp P>;
+            bindings = <&kp L>;
             layers = <0>;
         };
 
