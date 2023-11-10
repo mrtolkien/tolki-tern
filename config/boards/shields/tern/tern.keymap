@@ -21,9 +21,43 @@
             compatible = "zmk,behavior-hold-tap";
             label = "homerow mods";
             #binding-cells = <2>;
-            tapping_term_ms = <225>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
+            tapping-term-ms = <120>;
+            quick-tap-ms = <120>;
+            require-prior-idle-ms = <50>;
             bindings = <&kp>, <&kp>;
+        };
+    };
+
+    macros {
+        e_acute: e_acute{
+            label = "é";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp RA(E)>
+                , <&macro_tap &kp E>
+                ;
+        };
+
+        e_grave: e_grave{
+            label = "è";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp RA(GRAVE)>
+                , <&macro_tap &kp E>
+                ;
+        };
+
+        a_grave: a_grave{
+            label = "à";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp RA(GRAVE)>
+                , <&macro_tap &kp A>
+                ;
         };
     };
 
@@ -116,6 +150,28 @@
             timeout-ms = <50>;
             key-positions = <27 28>;
             bindings = <&kp TAB>;
+            layers = <0>;
+        };
+
+        // Accents
+        combo_left_diagonal_up {
+            timeout-ms = <50>;
+            key-positions = <2 10>;
+            bindings = <&e_acute>;
+            layers = <0>;
+        };
+
+        combo_left_diagonal_down {
+            timeout-ms = <50>;
+            key-positions = <10 21>;
+            bindings = <&e_grave>;
+            layers = <0>;
+        };
+
+        combo_left_pinky {
+            timeout-ms = <50>;
+            key-positions = <0 8>;
+            bindings = <&a_grave>;
             layers = <0>;
         };
     };
