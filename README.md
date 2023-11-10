@@ -7,7 +7,7 @@
 ```sh
 keymap -c keymap-drawer/config.yaml parse -z config/boards/shields/tern/tern.keymap > keymap-drawer/layers.yaml \
 && yq -i '.layout.qmk_info_json = "keymap-drawer/tern_layout.json"' keymap-drawer/layers.yaml \
-&& yq -i '.combos.4.align = "bottom"' keymap-drawer/layers.yaml \
+&& yq -i '.combos.0.align = "bottom"' keymap-drawer/layers.yaml \
 && keymap draw keymap-drawer/layers.yaml > layout.svg
 ```
 

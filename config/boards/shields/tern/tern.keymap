@@ -11,6 +11,8 @@
 #define NAV_L 1
 #define NUM_L 2
 #define SYM_L 3
+#define WIP1_L 4
+#define WIP2_L 5
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -23,9 +25,26 @@
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <120>;
-            quick-tap-ms = <120>;
+            quick-tap-ms = <200>;
             require-prior-idle-ms = <50>;
             bindings = <&kp>, <&kp>;
+        };
+
+        sp_bs: sp_bs {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SPACE_BACKSPACE";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp BACKSPACE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    
+        lt_sp: layer_tap_space_backspace {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_SPACE_BACKSPACE";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&sp_bs>;
+            tapping-term-ms = <120>;
+            quick-tap-ms = <200>;
         };
     };
 
@@ -64,7 +83,15 @@
     combos {
         compatible = "zmk,combos";
 
-        // Extra alpha keys combos
+        // This need to be the 1st entry for the yq command in README to work
+        combo_caps_word {
+            timeout-ms = <50>;
+            key-positions = <18 25>;
+            bindings = <&caps_word>;
+            layers = <0>;
+        };
+
+        // TODO Punctuation combos
         combo_top_left_left {
             timeout-ms = <50>;
             key-positions = <0 1>;
@@ -72,32 +99,25 @@
             layers = <0>;
         };
 
-        combo_top_right_right {
-            timeout-ms = <50>;
-            key-positions = <6 7>;
-            bindings = <&kp L>;
-            layers = <0>;
-        };
 
         combo_top_left_right {
             timeout-ms = <50>;
             key-positions = <1 2>;
-            bindings = <&kp Y>;
+            bindings = <&kp SINGLE_QUOTE>;
+            layers = <0>;
+        };
+
+        combo_top_right_right {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp SINGLE_QUOTE>;
             layers = <0>;
         };
 
         combo_top_right_left {
             timeout-ms = <50>;
             key-positions = <5 6>;
-            bindings = <&kp F>;
-            layers = <0>;
-        };
-
-        // This need to be the 5th entry for the yq command in README to work
-        combo_caps_word {
-            timeout-ms = <50>;
-            key-positions = <18 25>;
-            bindings = <&caps_word>;
+            bindings = <&kp SINGLE_QUOTE>;
             layers = <0>;
         };
 
@@ -153,27 +173,27 @@
             layers = <0>;
         };
 
-        // Accents
-        combo_left_diagonal_up {
-            timeout-ms = <50>;
-            key-positions = <2 10>;
-            bindings = <&e_acute>;
-            layers = <0>;
-        };
+        // TODO Accents
+        // combo_left_diagonal_up {
+        //     timeout-ms = <50>;
+        //     key-positions = <2 10>;
+        //     bindings = <&e_acute>;
+        //     layers = <0>;
+        // };
 
-        combo_left_diagonal_down {
-            timeout-ms = <50>;
-            key-positions = <10 21>;
-            bindings = <&e_grave>;
-            layers = <0>;
-        };
+        // combo_left_diagonal_down {
+        //     timeout-ms = <50>;
+        //     key-positions = <10 21>;
+        //     bindings = <&e_grave>;
+        //     layers = <0>;
+        // };
 
-        combo_left_pinky {
-            timeout-ms = <50>;
-            key-positions = <0 8>;
-            bindings = <&a_grave>;
-            layers = <0>;
-        };
+        // combo_left_pinky {
+        //     timeout-ms = <50>;
+        //     key-positions = <0 8>;
+        //     bindings = <&a_grave>;
+        //     layers = <0>;
+        // };
     };
 
     keymap {
@@ -181,11 +201,11 @@
 
         default_layer {
             bindings = <
-                           &kp COMMA  &kp PERIOD  &kp P           &kp I        &kp D            &kp G          &kp C       &kp R
-                &hm LGUI A &hm LALT O &hm LCTRL E &hm LSHFT U     &kp X        &kp B            &hm RSHFT H    &hm RCTRL T &hm LALT N &hm RGUI S
-                &kp SEMI   &kp Q      &kp J       &kp K                                         &kp M          &kp W       &kp V      &kp Z
+                           &kp Y      &kp O       &kp F           &kp B        &kp K            &kp Q          &kp L       &kp V
+              &lt WIP1_L U &hm LALT I &hm LCTRL A &hm LGUI C      &kp G        &kp M            &hm RGUI T     &hm RCTRL N &hm LALT S &lt WIP2_L R
+                &kp W      &kp J      &kp PERIOD  &kp P                                         &kp D          &kp H       &kp X      &kp Z
 
-                                            &lt NAV_L RET   &kp SPACE                     &lt NUM_L BKSP    &lt SYM_L ESC
+                                                  &sk LSHIFT      &lt SYM_L E  &lt_sp NUM_L 0   &lt NAV_L RET
             >;
         };
 
@@ -211,6 +231,26 @@
 
         sym_layer {
             label = "Symbols";
+            bindings = <
+                           &kp LS(N7) &kp LS(N8)  &kp LS(N9)      &kp RBRC      &trans          &trans         &trans      &trans
+                &kp COLON  &kp LS(N4) &kp LS(N5)  &kp LS(N6)      &kp PLUS      &trans          &trans         &trans      &trans     &trans
+                &kp LBRC   &kp LS(N1) &kp LS(N2)  &kp LS(N3)                                    &trans         &trans      &trans     &trans
+                                                  &kp LS(N0)      &kp UNDER     &trans          &trans
+            >;
+        };
+
+        wip1_layer {
+            label = "WiP";
+            bindings = <
+                           &kp LS(N7) &kp LS(N8)  &kp LS(N9)      &kp RBRC      &trans          &trans         &trans      &trans
+                &kp COLON  &kp LS(N4) &kp LS(N5)  &kp LS(N6)      &kp PLUS      &trans          &trans         &trans      &trans     &trans
+                &kp LBRC   &kp LS(N1) &kp LS(N2)  &kp LS(N3)                                    &trans         &trans      &trans     &trans
+                                                  &kp LS(N0)      &kp UNDER     &trans          &trans
+            >;
+        };
+
+        wip2_layer {
+            label = "WiP";
             bindings = <
                            &kp LS(N7) &kp LS(N8)  &kp LS(N9)      &kp RBRC      &trans          &trans         &trans      &trans
                 &kp COLON  &kp LS(N4) &kp LS(N5)  &kp LS(N6)      &kp PLUS      &trans          &trans         &trans      &trans     &trans
