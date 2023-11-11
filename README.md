@@ -11,16 +11,6 @@ keymap -c keymap-drawer/config.yaml parse -z config/boards/shields/tern/tern.key
 && keymap draw keymap-drawer/layers.yaml > layout.svg
 ```
 
-You can add the following for a better-looking output:
-
-```yaml
-- p: [18, 25]
-  k: Caps Word
-  l: [default]
-  align: bottom
-  offset: 1
-```
-
 ### Building locally
 
 In the `zmk` `app` directory:
