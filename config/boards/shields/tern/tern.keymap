@@ -10,7 +10,7 @@
 #define DEF_L 0
 #define NAV_L 1
 #define NUM_L 2
-#define SYM_L 3
+#define MATH_L 3
 #define WIP1_L 4
 #define WIP2_L 5
 
@@ -28,6 +28,14 @@
             quick-tap-ms = <200>;
             require-prior-idle-ms = <50>;
             bindings = <&kp>, <&kp>;
+        };
+
+        pe_co: period_comma {
+            compatible = "zmk,behavior-mod-morph";
+            label = "PERIOD_COMMA";
+            #binding-cells = <0>;
+            bindings = <&kp PERIOD>, <&kp COMMA>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         sp_bs: sp_bs {
@@ -91,11 +99,10 @@
             layers = <0>;
         };
 
-        // TODO Punctuation combos
         combo_top_left_left {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            bindings = <&kp SINGLE_QUOTE>;
+            bindings = <&kp SEMICOLON>;
             layers = <0>;
         };
 
@@ -103,7 +110,7 @@
         combo_top_left_right {
             timeout-ms = <50>;
             key-positions = <1 2>;
-            bindings = <&kp SINGLE_QUOTE>;
+            bindings = <&kp COLON>;
             layers = <0>;
         };
 
@@ -117,7 +124,7 @@
         combo_top_right_left {
             timeout-ms = <50>;
             key-positions = <5 6>;
-            bindings = <&kp SINGLE_QUOTE>;
+            bindings = <&kp DOUBLE_QUOTES>;
             layers = <0>;
         };
 
@@ -166,10 +173,18 @@
         };
 
         // Extra exotic combos
+        // TODO Review
         combo_thumbs {
             timeout-ms = <50>;
             key-positions = <27 28>;
             bindings = <&kp TAB>;
+            layers = <0>;
+        };
+
+        combo_exit {
+            timeout-ms = <50>;
+            key-positions = <21 20>;
+            bindings = <&kp ESC>;
             layers = <0>;
         };
 
@@ -203,9 +218,9 @@
             bindings = <
                            &kp Y      &kp O       &kp F           &kp B        &kp K            &kp Q          &kp L       &kp V
               &lt WIP1_L U &hm LALT I &hm LCTRL A &hm LGUI C      &kp G        &kp M            &hm RGUI T     &hm RCTRL N &hm LALT S &lt WIP2_L R
-                &kp W      &kp J      &kp PERIOD  &kp P                                         &kp D          &kp H       &kp X      &kp Z
+                &kp W      &kp J      &pe_co      &kp P                                         &kp D          &kp H       &kp X      &kp Z
 
-                                                  &sk LSHIFT      &lt SYM_L E  &lt_sp NUM_L 0   &lt NAV_L RET
+                                                  &sk LSHIFT      &lt MATH_L E  &lt_sp NUM_L 0  &lt NAV_L RET
             >;
         };
 
@@ -229,8 +244,8 @@
             >;
         };
 
-        sym_layer {
-            label = "Symbols";
+        math_layer {
+            label = "Math";
             bindings = <
                            &kp LS(N7) &kp LS(N8)  &kp LS(N9)      &kp RBRC      &trans          &trans         &trans      &trans
                 &kp COLON  &kp LS(N4) &kp LS(N5)  &kp LS(N6)      &kp PLUS      &trans          &trans         &trans      &trans     &trans

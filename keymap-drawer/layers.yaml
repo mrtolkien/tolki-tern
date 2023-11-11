@@ -20,14 +20,14 @@ layers:
     - {t: R, h: WiP}
     - W
     - J
-    - .
+    - {t: ., s: ','}
     - P
     - D
     - H
     - X
     - Z
     - {t: LSHIFT, h: sticky}
-    - {t: E, h: Symbols}
+    - {t: E, h: Math}
     - {t: SPACE, h: Numbers, s: BACKSPACE}
     - {t: RET, h: Navigation}
   Navigation:
@@ -92,7 +92,7 @@ layers:
     - '-'
     - {type: held}
     - {t: ▽, type: trans}
-  Symbols:
+  Math:
     - LS(7)
     - LS(8)
     - LS(9)
@@ -160,16 +160,16 @@ combos:
     l: [default]
     align: bottom
   - p: [0, 1]
-    k: ''''
+    k: ;
     l: [default]
   - p: [1, 2]
-    k: ''''
+    k: ':'
     l: [default]
   - p: [6, 7]
     k: ''''
     l: [default]
   - p: [5, 6]
-    k: ''''
+    k: '"'
     l: [default]
   - p: [0, 9]
     k: '['
@@ -191,6 +191,9 @@ combos:
     l: [default]
   - p: [27, 28]
     k: TAB
+    l: [default]
+  - p: [21, 20]
+    k: ESC
     l: [default]
 layout:
   qmk_info_json: keymap-drawer/tern_layout.json
