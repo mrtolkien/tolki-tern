@@ -220,7 +220,7 @@
               &lt WIP1_L U &hm LALT I &hm LCTRL A &hm LGUI C      &kp G        &kp M            &hm RGUI T     &hm RCTRL N &hm LALT S &lt WIP2_L R
                 &kp W      &kp J      &pe_co      &kp P                                         &kp D          &kp H       &kp X      &kp Z
 
-                                                  &sk LSHIFT      &lt MATH_L E  &lt_sp NUM_L 0  &lt NAV_L RET
+                                                  &sk LSHIFT      &lt MATH_L E  &lt_sp NUM_L 0  &lt NAV_L BACKSPACE
             >;
         };
 
