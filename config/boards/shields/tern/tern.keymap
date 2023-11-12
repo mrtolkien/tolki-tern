@@ -42,7 +42,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "SPACE_BACKSPACE";
             #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp BACKSPACE>;
+            bindings = <&kp SPACE>, <&kp BSPC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     
@@ -53,6 +53,31 @@
             bindings = <&mo>, <&sp_bs>;
             tapping-term-ms = <120>;
             quick-tap-ms = <200>;
+        };
+
+        bs_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BACKSPACE_DELETE";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    
+        lt_bs: layer_tap_backspace_delete {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_BACKSPACE_DELETE";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&bs_del>;
+            tapping-term-ms = <120>;
+            quick-tap-ms = <200>;
+        };
+
+        qu_q: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <120>;
+            bindings = <&qu>, <&kp Q>;
         };
     };
 
@@ -86,6 +111,16 @@
                 , <&macro_tap &kp A>
                 ;
         };
+
+        qu: qu{
+            label = "qu";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp Q>
+                , <&macro_tap &kp U>
+                ;
+        };
     };
 
     combos {
@@ -114,17 +149,31 @@
             layers = <0>;
         };
 
-        combo_top_right_right {
-            timeout-ms = <50>;
-            key-positions = <6 7>;
-            bindings = <&kp SINGLE_QUOTE>;
-            layers = <0>;
-        };
-
         combo_top_right_left {
             timeout-ms = <50>;
             key-positions = <5 6>;
-            bindings = <&kp DOUBLE_QUOTES>;
+            bindings = <&kp MINUS>;
+            layers = <0>;
+        };
+
+        combo_top_right_right {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp UNDERSCORE>;
+            layers = <0>;
+        };
+
+        combo_bottom_right_left {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            bindings = <&kp RET>;
+            layers = <0>;
+        };
+
+        combo_bottom_right_right {
+            timeout-ms = <50>;
+            key-positions = <24 25>;
+            bindings = <&kp Z>;
             layers = <0>;
         };
 
@@ -181,6 +230,14 @@
             layers = <0>;
         };
 
+        combo_right_thumb {
+            timeout-ms = <50>;
+            key-positions = <28 29>;
+            bindings = <&kp TAB>;
+            layers = <0>;
+        };
+
+        // Vim-inspired (old J-K)
         combo_exit {
             timeout-ms = <50>;
             key-positions = <21 20>;
@@ -216,11 +273,11 @@
 
         default_layer {
             bindings = <
-                           &kp Y      &kp O       &kp F           &kp B        &kp K            &kp Q          &kp L       &kp V
+                           &kp Y      &kp O       &kp F           &kp B        &kp K            &qu_q          &kp L       &kp V
               &lt WIP1_L U &hm LALT I &hm LCTRL A &hm LGUI C      &kp G        &kp M            &hm RGUI T     &hm RCTRL N &hm LALT S &lt WIP2_L R
-                &kp W      &kp J      &pe_co      &kp P                                         &kp D          &kp H       &kp X      &kp Z
+                &kp W      &kp J      &pe_co      &kp P                                         &kp D          &kp H       &kp X      &kp SINGLE_QUOTE
 
-                                                  &sk LSHIFT      &lt MATH_L E  &lt_sp NUM_L 0  &lt NAV_L BACKSPACE
+                                                  &sk LSHIFT      &lt MATH_L E  &lt_sp NUM_L 0  &lt_bs NAV_L 0
             >;
         };
 
