@@ -30,6 +30,7 @@
             bindings = <&kp>, <&kp>;
         };
 
+        // UNUSED ATM
         pe_co: period_comma {
             compatible = "zmk,behavior-mod-morph";
             label = "PERIOD_COMMA";
@@ -38,22 +39,23 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        sp_bs: sp_bs {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SPACE_BACKSPACE";
-            #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp BSPC>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+        // TODO Unused atm
+        // sp_bs: sp_bs {
+        //     compatible = "zmk,behavior-mod-morph";
+        //     label = "SPACE_BACKSPACE";
+        //     #binding-cells = <0>;
+        //     bindings = <&kp SPACE>, <&kp BSPC>;
+        //     mods = <(MOD_LSFT|MOD_RSFT)>;
+        // };
     
-        lt_sp: layer_tap_space_backspace {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_SPACE_BACKSPACE";
-            #binding-cells = <2>;
-            bindings = <&mo>, <&sp_bs>;
-            tapping-term-ms = <120>;
-            quick-tap-ms = <200>;
-        };
+        // lt_sp: layer_tap_space_backspace {
+        //     compatible = "zmk,behavior-hold-tap";
+        //     label = "LAYER_TAP_SPACE_BACKSPACE";
+        //     #binding-cells = <2>;
+        //     bindings = <&mo>, <&kp SPACE>;
+        //     tapping-term-ms = <120>;
+        //     quick-tap-ms = <200>;
+        // };
 
         bs_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
@@ -76,7 +78,6 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_0";
             #binding-cells = <0>;
-            tapping-term-ms = <120>;
             bindings = <&qu>, <&kp Q>;
         };
     };
@@ -137,7 +138,7 @@
         combo_top_left_left {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            bindings = <&kp SEMICOLON>;
+            bindings = <&kp J>;
             layers = <0>;
         };
 
@@ -145,7 +146,7 @@
         combo_top_left_right {
             timeout-ms = <50>;
             key-positions = <1 2>;
-            bindings = <&kp COLON>;
+            bindings = <&kp SEMICOLON>;
             layers = <0>;
         };
 
@@ -159,7 +160,7 @@
         combo_top_right_right {
             timeout-ms = <50>;
             key-positions = <6 7>;
-            bindings = <&kp UNDERSCORE>;
+            bindings = <&kp Z>;
             layers = <0>;
         };
 
@@ -167,13 +168,6 @@
             timeout-ms = <50>;
             key-positions = <22 23>;
             bindings = <&kp RET>;
-            layers = <0>;
-        };
-
-        combo_bottom_right_right {
-            timeout-ms = <50>;
-            key-positions = <24 25>;
-            bindings = <&kp Z>;
             layers = <0>;
         };
 
@@ -223,12 +217,12 @@
 
         // Extra exotic combos
         // TODO Review
-        combo_thumbs {
-            timeout-ms = <50>;
-            key-positions = <27 28>;
-            bindings = <&kp TAB>;
-            layers = <0>;
-        };
+        // combo_thumbs {
+        //     timeout-ms = <50>;
+        //     key-positions = <27 28>;
+        //     bindings = <&kp TAB>;
+        //     layers = <0>;
+        // };
 
         combo_right_thumb {
             timeout-ms = <50>;
@@ -275,18 +269,18 @@
             bindings = <
                            &kp Y      &kp O       &kp F           &kp B        &kp K            &qu_q          &kp L       &kp V
               &lt WIP1_L U &hm LALT I &hm LCTRL A &hm LGUI C      &kp G        &kp M            &hm RGUI T     &hm RCTRL N &hm LALT S &lt WIP2_L R
-                &kp W      &kp J      &pe_co      &kp P                                         &kp D          &kp H       &kp X      &kp SINGLE_QUOTE
+              &kp W        &kp COMMA  &kp PERIOD  &kp P                                         &kp D          &kp H       &kp X      &kp SINGLE_QUOTE
 
-                                                  &sk LSHIFT      &lt MATH_L E  &lt_sp NUM_L 0  &lt_bs NAV_L 0
+                                                  &sk LSHIFT      &lt NAV_L E  &lt NUM_L SPACE  &lt_bs NAV_L 0
             >;
         };
 
         nav_layer {
             label = "Navigation";
             bindings = <
-                           &trans     &trans      &trans          &trans       &trans           &kp HOME       &kp UARW &kp PG_UP
-                &trans     &trans     &trans      &trans          &trans       &trans           &kp LARW       &kp DARW &kp RARW   &trans
-                &trans     &trans     &trans      &trans                                        &kp END        &trans   &kp PG_DN  &trans
+                           &kp HOME       &kp UARW &kp PG_UP          &trans       &trans           &kp HOME       &kp UARW &kp PG_UP
+                &trans     &kp LARW       &kp DARW &kp RARW           &trans       &trans           &kp LARW       &kp DARW &kp RARW   &trans
+                &trans     &kp END        &trans   &kp PG_DN                                        &kp END        &trans   &kp PG_DN  &trans
                                                   &trans          &trans       &kp DEL          &kp DEL
             >;
         };
@@ -312,22 +306,22 @@
         };
 
         wip1_layer {
-            label = "WiP";
+            label = "Navigation";
             bindings = <
-                           &kp LS(N7) &kp LS(N8)  &kp LS(N9)      &kp RBRC      &trans          &trans         &trans      &trans
-                &kp COLON  &kp LS(N4) &kp LS(N5)  &kp LS(N6)      &kp PLUS      &trans          &trans         &trans      &trans     &trans
-                &kp LBRC   &kp LS(N1) &kp LS(N2)  &kp LS(N3)                                    &trans         &trans      &trans     &trans
-                                                  &kp LS(N0)      &kp UNDER     &trans          &trans
+                           &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans
+                &trans     &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans     &trans
+                &trans     &trans     &trans      &trans                                       &trans         &trans      &trans     &trans
+                                                  &trans          &trans       &trans          &trans
             >;
         };
 
         wip2_layer {
             label = "WiP";
             bindings = <
-                           &kp LS(N7) &kp LS(N8)  &kp LS(N9)      &kp RBRC      &trans          &trans         &trans      &trans
-                &kp COLON  &kp LS(N4) &kp LS(N5)  &kp LS(N6)      &kp PLUS      &trans          &trans         &trans      &trans     &trans
-                &kp LBRC   &kp LS(N1) &kp LS(N2)  &kp LS(N3)                                    &trans         &trans      &trans     &trans
-                                                  &kp LS(N0)      &kp UNDER     &trans          &trans
+                           &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans
+                &trans     &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans     &trans
+                &trans     &trans     &trans      &trans                                       &trans         &trans      &trans     &trans
+                                                  &trans          &trans       &trans          &trans
             >;
         };
     };
