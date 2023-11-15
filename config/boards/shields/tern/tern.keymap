@@ -278,10 +278,10 @@
         nav_layer {
             label = "Navigation";
             bindings = <
-                           &kp HOME       &kp UARW &kp PG_UP          &trans       &trans           &kp HOME       &kp UARW &kp PG_UP
-                &trans     &kp LARW       &kp DARW &kp RARW           &trans       &trans           &kp LARW       &kp DARW &kp RARW   &trans
-                &trans     &kp END        &trans   &kp PG_DN                                        &kp END        &trans   &kp PG_DN  &trans
-                                                  &trans          &trans       &kp DEL          &kp DEL
+                           &kp GRAVE  &kp UP      &kp PAGE_UP     &trans       &kp C_VOL_UP    &kp C_MUTE     &trans      &trans
+                &kp HOME   &kp LEFT   &kp DOWN    &kp RIGHT       &kp END      &kp C_VOL_DN    &trans         &trans      &trans     &kp RIGHT_SHIFT
+                &kp K_APP  &trans     &trans      &kp PAGE_DOWN                                &kp C_STOP     &kp C_PREV  &kp C_NEXT &kp C_PP
+                                                  &trans          &trans       &trans          &trans
             >;
         };
 
@@ -306,7 +306,7 @@
         };
 
         wip1_layer {
-            label = "Navigation";
+            label = "WiP";
             bindings = <
                            &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans
                 &trans     &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans     &trans
