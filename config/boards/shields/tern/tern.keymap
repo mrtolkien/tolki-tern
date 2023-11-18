@@ -10,7 +10,7 @@
 #define DEF_L 0
 #define NAV_L 1
 #define NUM_L 2
-#define MATH_L 3
+#define SYM_L 3
 #define WIP1_L 4
 #define WIP2_L 5
 
@@ -39,7 +39,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // TODO Unused atm
+        // TODO Unused atm, using dedicated key
         // sp_bs: sp_bs {
         //     compatible = "zmk,behavior-mod-morph";
         //     label = "SPACE_BACKSPACE";
@@ -74,12 +74,13 @@
             quick-tap-ms = <200>;
         };
 
-        qu_q: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
-            #binding-cells = <0>;
-            bindings = <&qu>, <&kp Q>;
-        };
+        // TODO Unused atm, not playing well w/ tap dance
+        // qu_q: tap_dance_0 {
+        //     compatible = "zmk,behavior-tap-dance";
+        //     label = "TAP_DANCE_0";
+        //     #binding-cells = <0>;
+        //     bindings = <&qu>, <&kp Q>;
+        // };
     };
 
     macros {
@@ -113,15 +114,35 @@
                 ;
         };
 
-        qu: qu{
-            label = "qu";
+        u_grave: u_grave{
+            label = "ù";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp Q>
+                = <&macro_tap &kp RA(GRAVE)>
                 , <&macro_tap &kp U>
                 ;
         };
+
+        i_circ: i_circ{
+            label = "î";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp RA(I)>
+                , <&macro_tap &kp I>
+                ;
+        };
+        
+        // qu: qu{
+        //     label = "qu";
+        //     compatible = "zmk,behavior-macro";
+        //     #binding-cells = <0>;
+        //     bindings
+        //         = <&macro_tap &kp Q>
+        //         , <&macro_tap &kp U>
+        //         ;
+        // };
     };
 
     combos {
@@ -216,11 +237,19 @@
         };
 
         // Extra exotic combos
-        // TODO Review
+        // TODO Review, maybe alt-tab
         // combo_thumbs {
         //     timeout-ms = <50>;
         //     key-positions = <27 28>;
         //     bindings = <&kp TAB>;
+        //     layers = <0>;
+        // };
+
+        // TODO Didn't feel right
+        // combo_left_thumb {
+        //     timeout-ms = <50>;
+        //     key-positions = <26 27>;
+        //     bindings = <&e_acute>;
         //     layers = <0>;
         // };
 
@@ -239,7 +268,6 @@
             layers = <0>;
         };
 
-        // TODO Accents
         // combo_left_diagonal_up {
         //     timeout-ms = <50>;
         //     key-positions = <2 10>;
@@ -267,41 +295,44 @@
 
         default_layer {
             bindings = <
-                           &kp Y      &kp O       &kp F           &kp B        &kp K            &qu_q          &kp L       &kp V
-              &lt WIP1_L U &hm LALT I &hm LCTRL A &hm LGUI C      &kp G        &kp M            &hm RGUI T     &hm RCTRL N &hm LALT S &lt WIP2_L R
-              &kp W        &kp COMMA  &kp PERIOD  &kp P                                         &kp D          &kp H       &kp X      &kp SINGLE_QUOTE
+                             &kp Y      &kp O       &kp F           &kp B        &kp K            &kp Q          &kp L       &kp V
+                &lt WIP1_L U &hm LALT I &hm LCTRL A &hm LGUI C      &kp G        &kp M            &hm RGUI T     &hm RCTRL N &hm LALT S &lt WIP2_L R
+                &kp W        &kp COMMA  &kp PERIOD  &kp P                                         &kp D          &kp H       &kp X      &kp SINGLE_QUOTE
 
-                                                  &sk LSHIFT      &lt NAV_L E  &lt NUM_L SPACE  &lt_bs NAV_L 0
+                                                    &sk LSHIFT      &lt NAV_L E  &lt SYM_L SPACE  &lt_bs NUM_L 0
             >;
         };
-
+        
         nav_layer {
             label = "Navigation";
             bindings = <
                            &kp GRAVE  &kp UP      &kp PAGE_UP     &trans       &kp C_VOL_UP    &kp C_MUTE     &trans      &trans
                 &kp HOME   &kp LEFT   &kp DOWN    &kp RIGHT       &kp END      &kp C_VOL_DN    &trans         &trans      &trans     &kp RIGHT_SHIFT
                 &kp K_APP  &trans     &trans      &kp PAGE_DOWN                                &kp C_STOP     &kp C_PREV  &kp C_NEXT &kp C_PP
-                                                  &trans          &trans       &trans          &trans
-            >;
-        };
 
-        num_layer {
-            label = "Numbers";
-            bindings = <
-                           &kp N7     &kp N8      &kp N9          &kp RBKT      &trans          &trans         &trans      &trans
-                &kp SEMI   &kp N4     &kp N5      &kp N6          &kp EQUAL     &trans          &trans         &trans      &trans     &trans
-                &kp LBKT   &kp N1     &kp N2      &kp N3                                        &trans         &trans      &trans     &trans
-                                                  &kp N0          &kp MINUS     &trans          &trans
+                                                  &trans          &trans       &trans          &trans
             >;
         };
 
         math_layer {
             label = "Math";
             bindings = <
-                           &kp LS(N7) &kp LS(N8)  &kp LS(N9)      &kp RBRC      &trans          &trans         &trans      &trans
-                &kp COLON  &kp LS(N4) &kp LS(N5)  &kp LS(N6)      &kp PLUS      &trans          &trans         &trans      &trans     &trans
-                &kp LBRC   &kp LS(N1) &kp LS(N2)  &kp LS(N3)                                    &trans         &trans      &trans     &trans
-                                                  &kp LS(N0)      &kp UNDER     &trans          &trans
+                           &trans         &trans      &trans          &trans        &kp KP_DIVIDE   &kp N7     &kp N8      &kp N9
+                &trans     &trans         &trans      &trans          &trans        &kp KP_MULTIPLY &kp N4     &kp N5      &kp N6     &kp EQUAL
+                &trans     &trans         &trans      &trans                                        &kp N1     &kp N2      &kp N3     &kp PLUS
+
+                                                      &trans          &kp 0         &trans          &trans
+            >;
+        };
+
+        sym_layer {
+            label = "Symbols";
+            bindings = <
+                           &trans         &trans      &trans          &trans        &kp KP_DIVIDE   &kp BSLH   &kp PIPE    &kp CARET
+                &trans     &trans         &trans      &trans          &trans        &kp KP_MULTIPLY &kp QMARK  &kp EXCL    &kp AMPS   &kp EQUAL
+                &trans     &trans         &trans      &trans                                        &kp DOLLAR &kp HASH    &kp AT     &kp PLUS
+
+                                                      &trans          &trans        &trans          &trans
             >;
         };
 
@@ -311,17 +342,19 @@
                            &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans
                 &trans     &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans     &trans
                 &trans     &trans     &trans      &trans                                       &trans         &trans      &trans     &trans
+
                                                   &trans          &trans       &trans          &trans
             >;
         };
 
         wip2_layer {
-            label = "WiP";
+            label = "French";
             bindings = <
                            &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans
-                &trans     &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans     &trans
+                &u_grave   &i_circ    &a_grave    &kp RA(C)       &trans       &trans          &trans         &trans      &trans     &trans
                 &trans     &trans     &trans      &trans                                       &trans         &trans      &trans     &trans
-                                                  &trans          &trans       &trans          &trans
+
+                                                  &e_acute        &e_grave     &trans          &trans
             >;
         };
     };

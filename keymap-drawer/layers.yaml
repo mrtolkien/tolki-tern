@@ -5,7 +5,7 @@ layers:
     - F
     - B
     - K
-    - '&qu_q'
+    - Q
     - L
     - V
     - {t: U, h: WiP}
@@ -17,60 +17,65 @@ layers:
     - {t: T, h: RGUI}
     - {t: N, h: RCTRL}
     - {t: S, h: LALT}
-    - {t: R, h: WiP}
+    - {t: R, h: French}
     - W
-    - J
-    - {t: ., s: ','}
+    - ','
+    - .
     - P
     - D
     - H
     - X
     - ''''
     - {t: LSHIFT, h: sticky}
-    - {t: E, h: Math}
-    - {t: SPACE, h: Numbers, s: BSPC}
-    - {t: BSPC, h: Navigation, s: DEL}
+    - {t: E, h: Navigation}
+    - {t: SPACE, h: Symbols}
+    - {t: BSPC, h: Math, s: DEL}
   Navigation:
+    - '`'
+    - UP
+    - PAGE UP
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - VOL UP
+    - MUTE
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - HOME
-    - UARW
-    - PG UP
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - LARW
-    - DARW
-    - RARW
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - LEFT
+    - DOWN
+    - RIGHT
     - END
-    - {t: ▽, type: trans}
-    - PG DN
-    - {t: ▽, type: trans}
+    - VOL DN
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - DEL
-    - {t: DEL, type: held}
-  Numbers:
+    - {t: ▽, type: trans}
+    - RIGHT SHIFT
+    - APP
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - PAGE DOWN
+    - STOP
+    - PREV
+    - NEXT
+    - PP
+    - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  Math:
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - KP DIVIDE
     - '7'
     - '8'
     - '9'
-    - ']'
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - ;
+    - {t: ▽, type: trans}
+    - KP MULTIPLY
     - '4'
     - '5'
     - '6'
@@ -79,79 +84,105 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - '['
     - '1'
     - '2'
     - '3'
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - +
     - {t: ▽, type: trans}
     - '0'
-    - '-'
+    - {t: ▽, type: trans}
     - {type: held}
-    - {t: ▽, type: trans}
-  Math:
-    - LS(7)
-    - LS(8)
-    - LS(9)
-    - '}'
+  Symbols:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - ':'
-    - LS(4)
-    - LS(5)
-    - LS(6)
+    - KP DIVIDE
+    - \
+    - '|'
+    - ^
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - KP MULTIPLY
+    - '?'
+    - '!'
+    - '&'
+    - '='
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - $
+    - '#'
+    - '@'
     - +
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - '{'
-    - LS(1)
-    - LS(2)
-    - LS(3)
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - LS(0)
-    - {t: _, type: held}
-    - {t: ▽, type: trans}
+    - {type: held}
     - {t: ▽, type: trans}
   WiP:
-    - LS(7)
-    - LS(8)
-    - LS(9)
-    - '}'
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ':', type: held}
-    - LS(4)
-    - LS(5)
-    - LS(6)
-    - +
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {type: held}
-    - '{'
-    - LS(1)
-    - LS(2)
-    - LS(3)
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - LS(0)
-    - _
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  French:
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '&u_grave'
+    - '&i_circ'
+    - '&a_grave'
+    - RA(C)
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '&e_acute'
+    - '&e_grave'
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
 combos:
@@ -160,22 +191,19 @@ combos:
     l: [default]
     align: bottom
   - p: [0, 1]
-    k: ;
+    k: J
     l: [default]
   - p: [1, 2]
-    k: ':'
+    k: ;
     l: [default]
   - p: [5, 6]
     k: '-'
     l: [default]
   - p: [6, 7]
-    k: _
+    k: Z
     l: [default]
   - p: [22, 23]
     k: RET
-    l: [default]
-  - p: [24, 25]
-    k: Z
     l: [default]
   - p: [0, 9]
     k: '['
@@ -194,9 +222,6 @@ combos:
     l: [default]
   - p: [7, 16]
     k: ']'
-    l: [default]
-  - p: [27, 28]
-    k: TAB
     l: [default]
   - p: [28, 29]
     k: TAB
