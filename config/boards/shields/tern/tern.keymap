@@ -321,7 +321,7 @@
                 &trans     &trans         &trans      &trans          &trans        &kp KP_MULTIPLY &kp N4     &kp N5      &kp N6     &kp EQUAL
                 &trans     &trans         &trans      &trans                                        &kp N1     &kp N2      &kp N3     &kp PLUS
 
-                                                      &trans          &kp 0         &trans          &trans
+                                                      &trans          &kp N0        &trans          &trans
             >;
         };
 
@@ -354,7 +354,7 @@
                 &u_grave   &i_circ    &a_grave    &kp RA(C)       &trans       &trans          &trans         &trans      &trans     &trans
                 &trans     &trans     &trans      &trans                                       &trans         &trans      &trans     &trans
 
-                                                  &e_acute        &e_grave     &trans          &trans
+                                                  &e_grave        &e_acute     &trans          &trans
             >;
         };
     };
