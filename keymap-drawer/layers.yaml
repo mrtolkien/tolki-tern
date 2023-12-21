@@ -8,7 +8,7 @@ layers:
     - Q
     - L
     - V
-    - {t: U, h: WiP}
+    - {t: U, h: wip1}
     - {t: I, h: LALT}
     - {t: A, h: LCTRL}
     - {t: C, h: LGUI}
@@ -17,7 +17,7 @@ layers:
     - {t: T, h: RGUI}
     - {t: N, h: RCTRL}
     - {t: S, h: LALT}
-    - {t: R, h: French}
+    - {t: R, h: wip2}
     - W
     - ','
     - .
@@ -27,10 +27,10 @@ layers:
     - X
     - ''''
     - {t: LSHIFT, h: sticky}
-    - {t: E, h: Navigation}
-    - {t: SPACE, h: Symbols}
-    - {t: BSPC, h: Math, s: DEL}
-  Navigation:
+    - {t: E, h: nav}
+    - {t: SPACE, h: math}
+    - {t: BSPC, h: sym, s: DEL}
+  nav:
     - '`'
     - UP
     - PAGE UP
@@ -49,7 +49,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - RIGHT SHIFT
-    - APP
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - PAGE DOWN
@@ -61,7 +61,7 @@ layers:
     - {type: held}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-  Math:
+  math:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -90,9 +90,9 @@ layers:
     - +
     - {t: ▽, type: trans}
     - '0'
-    - {t: ▽, type: trans}
     - {type: held}
-  Symbols:
+    - {t: ▽, type: trans}
+  sym:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -107,10 +107,10 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - KP MULTIPLY
-    - '?'
     - '!'
+    - '?'
     - '&'
-    - '='
+    - '%'
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -121,40 +121,40 @@ layers:
     - +
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {type: held}
-    - {t: ▽, type: trans}
-  WiP:
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {type: held}
+  wip1:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
+    - F7
+    - F8
+    - F9
+    - {type: held}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
+    - F4
+    - F5
+    - F6
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
+    - F1
+    - F2
+    - F3
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-  French:
+  wip2:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -173,15 +173,15 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {type: held}
+    - '&u_circ'
+    - '&i_circ'
+    - '&a_circ'
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - '&e_acute'
+    - '&e_circ'
     - '&e_grave'
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -222,6 +222,9 @@ combos:
     l: [default]
   - p: [7, 16]
     k: ']'
+    l: [default]
+  - p: [27, 28]
+    k: '&e_grave'
     l: [default]
   - p: [28, 29]
     k: TAB

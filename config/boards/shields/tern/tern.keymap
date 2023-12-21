@@ -24,20 +24,21 @@
             label = "homerow mods";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <120>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <200>;
-            require-prior-idle-ms = <50>;
+            // TODO Review for pinky
+            // require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
 
         // UNUSED ATM
-        pe_co: period_comma {
-            compatible = "zmk,behavior-mod-morph";
-            label = "PERIOD_COMMA";
-            #binding-cells = <0>;
-            bindings = <&kp PERIOD>, <&kp COMMA>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
+        // pe_co: period_comma {
+        //     compatible = "zmk,behavior-mod-morph";
+        //     label = "PERIOD_COMMA";
+        //     #binding-cells = <0>;
+        //     bindings = <&kp PERIOD>, <&kp COMMA>;
+        //     mods = <(MOD_LSFT|MOD_RSFT)>;
+        // };
 
         // TODO Unused atm, using dedicated key
         // sp_bs: sp_bs {
@@ -74,7 +75,7 @@
             quick-tap-ms = <200>;
         };
 
-        // TODO Unused atm, not playing well w/ tap dance
+        // TODO Unused atm, not playing well w/ interruptions
         // qu_q: tap_dance_0 {
         //     compatible = "zmk,behavior-tap-dance";
         //     label = "TAP_DANCE_0";
@@ -134,6 +135,36 @@
                 ;
         };
         
+        e_circ: e_circ{
+            label = "ê";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp RA(I)>
+                , <&macro_tap &kp E>
+                ;
+        };
+
+        a_circ: a_circ{
+            label = "â";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp RA(I)>
+                , <&macro_tap &kp A>
+                ;
+        };
+
+        u_circ: u_circ{
+            label = "û";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp RA(I)>
+                , <&macro_tap &kp U>
+                ;
+        };
+
         // qu: qu{
         //     label = "qu";
         //     compatible = "zmk,behavior-macro";
@@ -162,7 +193,6 @@
             bindings = <&kp J>;
             layers = <0>;
         };
-
 
         combo_top_left_right {
             timeout-ms = <50>;
@@ -237,13 +267,12 @@
         };
 
         // Extra exotic combos
-        // TODO Review, maybe alt-tab
-        // combo_thumbs {
-        //     timeout-ms = <50>;
-        //     key-positions = <27 28>;
-        //     bindings = <&kp TAB>;
-        //     layers = <0>;
-        // };
+        combo_thumbs {
+            timeout-ms = <50>;
+            key-positions = <27 28>;
+            bindings = <&e_grave>;
+            layers = <0>;
+        };
 
         // TODO Didn't feel right
         // combo_left_thumb {
@@ -299,18 +328,18 @@
                 &lt WIP1_L U &hm LALT I &hm LCTRL A &hm LGUI C      &kp G        &kp M            &hm RGUI T     &hm RCTRL N &hm LALT S &lt WIP2_L R
                 &kp W        &kp COMMA  &kp PERIOD  &kp P                                         &kp D          &kp H       &kp X      &kp SINGLE_QUOTE
 
-                                                    &sk LSHIFT      &lt NAV_L E  &lt SYM_L SPACE  &lt_bs NUM_L 0
+                                                    &sk LSHIFT      &lt NAV_L E  &lt NUM_L SPACE  &lt_bs SYM_L 0
             >;
         };
         
         nav_layer {
             label = "Navigation";
             bindings = <
-                           &kp GRAVE  &kp UP      &kp PAGE_UP     &trans       &kp C_VOL_UP    &kp C_MUTE     &trans      &trans
-                &kp HOME   &kp LEFT   &kp DOWN    &kp RIGHT       &kp END      &kp C_VOL_DN    &trans         &trans      &trans     &kp RIGHT_SHIFT
-                &kp K_APP  &trans     &trans      &kp PAGE_DOWN                                &kp C_STOP     &kp C_PREV  &kp C_NEXT &kp C_PP
+                           &kp GRAVE  &kp UP      &kp PAGE_UP     &kp PAGE_DOWN &kp C_VOL_UP    &kp C_MUTE     &trans      &trans
+                &kp HOME   &kp LEFT   &kp DOWN    &kp RIGHT       &kp END       &kp C_VOL_DN    &trans         &trans      &trans     &kp RIGHT_SHIFT
+                &trans     &trans     &kp LG(C)   &kp LG(V)                     &kp C_STOP      &kp C_PREV     &kp C_NEXT  &kp C_PP
 
-                                                  &trans          &trans       &trans          &trans
+                                                  &trans          &trans        &trans          &trans
             >;
         };
 
@@ -329,7 +358,7 @@
             label = "Symbols";
             bindings = <
                            &trans         &trans      &trans          &trans        &kp KP_DIVIDE   &kp BSLH   &kp PIPE    &kp CARET
-                &trans     &trans         &trans      &trans          &trans        &kp KP_MULTIPLY &kp QMARK  &kp EXCL    &kp AMPS   &kp EQUAL
+                &trans     &trans         &trans      &trans          &trans        &kp KP_MULTIPLY &kp EXCL   &kp QMARK   &kp AMPS   &kp PERCENT
                 &trans     &trans         &trans      &trans                                        &kp DOLLAR &kp HASH    &kp AT     &kp PLUS
 
                                                       &trans          &trans        &trans          &trans
@@ -339,22 +368,22 @@
         wip1_layer {
             label = "WiP";
             bindings = <
-                           &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans
-                &trans     &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans     &trans
-                &trans     &trans     &trans      &trans                                       &trans         &trans      &trans     &trans
+                           &trans     &trans      &trans          &trans       &trans          &kp F7         &kp F8      &kp F9
+                &trans     &trans     &trans      &trans          &trans       &trans          &kp F4         &kp F5      &kp F6     &trans
+                &trans     &trans     &trans      &trans                                       &kp F1         &kp F2      &kp F3     &trans
 
                                                   &trans          &trans       &trans          &trans
             >;
         };
-
+        
         wip2_layer {
             label = "French";
             bindings = <
                            &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans
                 &u_grave   &i_circ    &a_grave    &kp RA(C)       &trans       &trans          &trans         &trans      &trans     &trans
-                &trans     &trans     &trans      &trans                                       &trans         &trans      &trans     &trans
+                &u_circ    &i_circ    &a_circ     &trans                                       &trans         &trans      &trans     &trans
 
-                                                  &e_grave        &e_acute     &trans          &trans
+                                                  &e_circ        &e_grave     &trans          &trans
             >;
         };
     };
