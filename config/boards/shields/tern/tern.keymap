@@ -12,7 +12,7 @@
 #define NUM_L 2
 #define SYM_L 3
 #define WIP1_L 4
-#define WIP2_L 5
+#define FR_L 5
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -75,7 +75,7 @@
             quick-tap-ms = <200>;
         };
 
-        // TODO Unused atm, not playing well w/ interruptions
+        // TODO Unused atm, not playing well w/ interruptions (tap-e -> qeu)
         // qu_q: tap_dance_0 {
         //     compatible = "zmk,behavior-tap-dance";
         //     label = "TAP_DANCE_0";
@@ -272,16 +272,15 @@
             key-positions = <27 28>;
             bindings = <&e_acute>;
             layers = <0>;
-            require-prior-idle-ms = <50>;
+            require-prior-idle-ms = <25>;
         };
 
-        // TODO Didn't feel right
-        // combo_left_thumb {
-        //     timeout-ms = <50>;
-        //     key-positions = <26 27>;
-        //     bindings = <&e_acute>;
-        //     layers = <0>;
-        // };
+        combo_left_thumb {
+            timeout-ms = <50>;
+            key-positions = <26 27>;
+            bindings = <&kp SLASH>;
+            layers = <0>;
+        };
 
         combo_right_thumb {
             timeout-ms = <50>;
@@ -326,7 +325,7 @@
         default_layer {
             bindings = <
                              &kp Y      &kp O       &kp F           &kp B        &kp K            &kp Q          &kp L       &kp V
-                &lt WIP1_L U &hm LALT I &hm LCTRL A &hm LGUI C      &kp G        &kp M            &hm RGUI T     &hm RCTRL N &hm LALT S &lt WIP2_L R
+                &lt WIP1_L U &hm LALT I &hm LCTRL A &hm LGUI C      &kp G        &kp M            &hm RGUI T     &hm RCTRL N &hm LALT S &lt FR_L R
                 &kp W        &kp COMMA  &kp PERIOD  &kp P                                         &kp D          &kp H       &kp X      &kp SINGLE_QUOTE
 
                                                     &sk LSHIFT      &lt NAV_L E  &lt NUM_L SPACE  &lt_bs SYM_L 0
@@ -377,7 +376,7 @@
             >;
         };
         
-        wip2_layer {
+        french_layer {
             label = "French";
             bindings = <
                            &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans
