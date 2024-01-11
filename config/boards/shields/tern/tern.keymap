@@ -165,6 +165,16 @@
                 ;
         };
 
+        o_circ: o_circ{
+            label = "ô";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp RA(I)>
+                , <&macro_tap &kp O>
+                ;
+        };
+
         // qu: qu{
         //     label = "qu";
         //     compatible = "zmk,behavior-macro";
@@ -379,7 +389,7 @@
         french_layer {
             label = "French";
             bindings = <
-                           &trans     &trans      &trans          &trans       &trans          &trans         &trans      &trans
+                           &trans     &o_circ     &trans          &trans       &trans          &trans         &trans      &trans
                 &u_grave   &i_circ    &a_grave    &kp RA(C)       &trans       &trans          &trans         &trans      &trans     &trans
                 &u_circ    &i_circ    &a_circ     &trans                                       &trans         &trans      &trans     &trans
 
