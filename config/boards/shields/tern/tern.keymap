@@ -24,10 +24,10 @@
             label = "homerow mods";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             quick-tap-ms = <200>;
             // TODO Review for pinky
-            // require-prior-idle-ms = <125>;
+            require-prior-idle-ms = <50>;
             bindings = <&kp>, <&kp>;
         };
 
@@ -193,7 +193,7 @@
         combo_caps_word {
             timeout-ms = <50>;
             key-positions = <18 25>;
-            bindings = <&caps_word>;
+            bindings = <&kp CAPSLOCK>;
             layers = <0>;
         };
 
@@ -279,10 +279,9 @@
         // Extra exotic combos
         combo_thumbs {
             timeout-ms = <50>;
-            key-positions = <27 28>;
+            key-positions = <27 29>;
             bindings = <&e_acute>;
             layers = <0>;
-            require-prior-idle-ms = <25>;
         };
 
         combo_left_thumb {

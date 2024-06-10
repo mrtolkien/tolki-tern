@@ -16,7 +16,7 @@ keymap -c keymap-drawer/config.yaml parse -z config/boards/shields/tern/tern.key
 In the `zmk` `app` directory:
 
 ```sh
-west build -b seeeduino_xiao_rp2040 -- -DSHIELD=tern -DZMK_CONFIG=/workspaces/zmk/tern
+west build --board seeeduino_xiao_rp2040 -- -DSHIELD=tern -DZMK_CONFIG=/workspaces/zmk/tern-tolki/config
 ```
 
 ### Bind mounting in a VSCode dev container
